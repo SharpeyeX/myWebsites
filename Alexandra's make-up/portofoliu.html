@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Alexandra's Make-up Style</title>
+  <link href="style.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Alexandra's Make-up Style</h1>
+    </div>
+
+    <div class="content">
+      <div class="nav">
+        <ul>
+          <li><a href="./index.html">Acasa</a></li>
+          <li><a href="./portofoliu.html">Portofoliu</a></li>
+          <li><a href="./servicii.html">Servicii</a></li>
+          <li><a href="./about.html">Despre mine</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="main" id="page2">
+
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incclassclassunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupclassatat non
+        proclassent, sunt in culpa qui officia deserunt mollit anim class est laborum.</p>
+
+      </div>
+
+        <div style="height: 100px; width: 300px;" id="slider">
+          <a href="#" class="control_next">>></a>
+          <a href="#" class="control_prev"><</a>
+          <ul>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/4.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/5.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/6.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/1.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/2.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/3.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/7.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/8.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/9.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/10.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/11.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/12.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/13.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/14.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/15.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/16.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/17.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/18.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/19.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/20.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/21.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/22.jpg" alt="Machiaj"></li>
+            <li><img style="height:100%; width:100% object-fit:contain" src="images/portofoliu/23.jpg" alt="Machiaj"></li>
+
+          </ul>  
+        </div>
+
+      <div class="slider_option">
+        <input type="checkbox" id="checkbox">
+        <label for="checkbox">Autoplay</label>
+      </div> 
+
+    </div>
+
+    <div class="footer">
+      Copyright &copy; 2017 Alexandra's Make-up Style Ploiesti
+      
+    </div>
+  </div>
+
+ <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+ <script>
+    jQuery(document).ready(function ($) {
+
+  $('#checkbox').change(function(){
+    setInterval(function () {
+        moveRight();
+    }, 2000);
+  });
+  
+  var slideCount = $('#slider ul li').length;
+  var slideWidth = $('#slider ul li').width();
+  var slideHeight = $('#slider ul li').height();
+  var sliderUlWidth = slideCount * slideWidth;
+  
+  $('#slider').css({ width: slideWidth, height: slideHeight });
+  
+  $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+  
+    $('#slider ul li:last-child').prependTo('#slider ul');
+
+    function moveLeft() {
+        $('#slider ul').animate({
+            left: + slideWidth
+        }, 200, function () {
+            $('#slider ul li:last-child').prependTo('#slider ul');
+            $('#slider ul').css('left', '');
+        });
+    };
+
+    function moveRight() {
+        $('#slider ul').animate({
+            left: - slideWidth
+        }, 200, function () {
+            $('#slider ul li:first-child').appendTo('#slider ul');
+            $('#slider ul').css('left', '');
+        });
+    };
+
+    $('a.control_prev').click(function () {
+        moveLeft();
+    });
+
+    $('a.control_next').click(function () {
+        moveRight();
+    });
+});
+
+</script>
+</body>
+</html>
